@@ -1,0 +1,40 @@
+POST http://localhost:8000/api/issues
+Content-Type: application/json
+
+{
+  "id": 1,
+  "title": "My car broke",
+  "description": "My car broke so please fix it",
+  "author": "rjworks",
+  "priority": "Medium"
+}
+
+###
+
+POST http://localhost:8000/api/issues
+Content-Type: application/json
+
+{
+"id": 2,
+"title": "I need help",
+"description": "Same",
+"author": "rjworks",
+"priority": "Super high"
+}
+
+###
+
+DELETE http://localhost:8000/api/issues/
+
+###
+
+PATCH http://localhost:8000/api/issues/1
+Content-Type: application/json
+
+{
+  "id": 1,
+  "title": "The fire is on fire",
+  "description": "Because the fire went on fire, the fire went on fire",
+  "author": "rjworks",
+  "priority": "High"
+}

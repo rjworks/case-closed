@@ -33,7 +33,7 @@ const Create = () => {
         if(title && description) {
             setTitle('');
             setDescription('');
-            alert("Case added!")
+            alert("Issue added!")
         }
     }
     return (
