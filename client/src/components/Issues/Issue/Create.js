@@ -59,8 +59,9 @@ const Create = () => {
                 history.push('/');
             } catch(e) {
                 console.log(e.message);
-                alert('Failed adding new issue. Try again later.')
                 setSubmitting(false);
+                alert('Failed adding new issue. Try again later.')
+                history.push('/');
             }
         }
     }
