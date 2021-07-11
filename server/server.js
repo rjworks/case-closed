@@ -12,6 +12,12 @@ const db = mongoose.connection;
 db.on('error', (e) => console.error(e));
 db.once('open', () => console.log('Connected to the Database!'))
 
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", process.env.FRONTEND_URL); // update to match the domain you will make the request from
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
+
 app.use(express.json());
 app.use(cors());
 app.use('/api', router);

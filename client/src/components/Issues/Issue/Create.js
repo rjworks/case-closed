@@ -60,6 +60,7 @@ const Create = () => {
             } catch(e) {
                 console.log(e.message);
                 alert('Failed adding new issue. Try again later.')
+                setSubmitting(false);
             }
         }
     }
