@@ -21,7 +21,7 @@ const Issue = () => {
         }
         getData();
 
-    }, [])
+    }, [params.id])
 
     useEffect(() => {
         if(data !== null)

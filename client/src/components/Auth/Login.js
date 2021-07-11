@@ -1,15 +1,5 @@
 import React, { useEffect } from 'react';
-import {
-    Backdrop,
-    Button,
-    Container,
-    Dialog, DialogActions, DialogContent, DialogContentText,
-    DialogTitle,
-    Fade,
-    makeStyles,
-    Modal, Slide,
-    Typography
-} from '@material-ui/core';
+import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, } from '@material-ui/core';
 import { useAuth0 } from '@auth0/auth0-react';
 
 const Login = () => {
@@ -23,7 +13,7 @@ const Login = () => {
     useEffect(() => {
         if(!isLoading)
             setOpen(!isAuthenticated);
-    }, [isAuthenticated]);
+    }, [isLoading, isAuthenticated]);
 
     return (
         !isAuthenticated && (
