@@ -3,14 +3,12 @@ import { axiosInstance } from '../../client';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import { Avatar, Card, CardContent, CardHeader, Container, Grid, IconButton, Typography } from '@material-ui/core';
 import { useHistory } from 'react-router';
-import { useAuth0 } from '@auth0/auth0-react';
 import LoadingSpinner from '../Utils/LoadingSpinner';
 import useStyles from './styles';
 
 const Home = () => {
     const history = useHistory();
     const classes = useStyles();
-    const { user } = useAuth0();
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
 
