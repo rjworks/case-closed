@@ -6,12 +6,14 @@ import LoadingSpinner from '../../Utils/LoadingSpinner';
 import DeleteIcon from '@material-ui/icons/Delete';
 import useStyles from './styles';
 import { useAuth0 } from '@auth0/auth0-react';
+import { useHistory } from 'react-router';
 
 const Issue = () => {
     const params = useParams();
     const [loading, setLoading] = useState(true);
     const [data, setData] = useState(null);
     const classes = useStyles();
+    const history = useHistory();
     const { user } = useAuth0();
 
     useEffect(() => {
@@ -28,12 +30,25 @@ const Issue = () => {
             setLoading(false);
     }, [data]);
 
+    const deleteIssue = async(id) => {
+        try{
+            await axiosInstance.delete(`/issues/${id}`);
+            history.push('/');
+            alert('The issue has been deleted.');
+        }catch(e){
+            console.log(e.message)
+            alert('There was an error deleting the issue.');
+        }
+    }
+
     return (
         loading ? <LoadingSpinner/> :
             <Card className={classes.root}>
                 <CardHeader
                     action={
-                        data.authorEmail === user.email ? <IconButton>
+                        data.authorEmail === user.email ? <IconButton onClick={() => {
+                            deleteIssue(data._id);
+                        }}>
                             <DeleteIcon/>
                         </IconButton> : null
                     }

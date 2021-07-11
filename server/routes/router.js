@@ -67,8 +67,8 @@ router.delete('/issues/:id', async(req, res) => {
         return;
     }
     try {
-        await Issue.findOneAndRemove({id: id});
-        res.json({message: "Successfully deleted issue #" + id});
+        await Issue.findOneAndRemove({ _id: id });
+        res.json({ message: "Successfully deleted issue #" + id });
     } catch(e) {
         res.status(500).json({message: e.message});
     }
@@ -89,16 +89,16 @@ router.patch('/issues/:id/', async(req, res) => {
 
     try{
         if(title && description && priority) {
-            await Issue.updateOne({id: id}, {
+            await Issue.updateOne({_id: id}, {
                 title: title,
                 description: description,
                 priority: priority,
                 lastUpdated: Date.now()
             });
         } else if(title && description) {
-            await Issue.updateOne({id: id}, {title: title, description: description, lastUpdated: Date.now()});
+            await Issue.updateOne({_id: id}, {title: title, description: description, lastUpdated: Date.now()});
         } else if(title) {
-            await Issue.updateOne({id: id}, {title: title, lastUpdated: Date.now()});
+            await Issue.updateOne({_id: id}, {title: title, lastUpdated: Date.now()});
         }
         res.status(200).json({message: "Successfully updated issue #" + id});
     }catch(e){

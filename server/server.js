@@ -6,14 +6,14 @@ const cors = require('cors');
 require('dotenv').config();
 
 console.log('Connecting to the Databse...')
-mongoose.connect(process.env.DATABASE_URL, {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect(process.env.DATABASE_URL, {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
 
 const db = mongoose.connection;
 db.on('error', (e) => console.error(e));
 db.once('open', () => console.log('Connected to the Database!'))
 
 app.use(function(req, res, next) {
-    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Origin', process.env.FRONTEND_URL);
     next();
 });
 
