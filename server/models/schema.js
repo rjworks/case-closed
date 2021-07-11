@@ -16,6 +16,7 @@ const issue = new Schema({
     description: reqString,
     author: reqString,
     priority: reqString,
+    authorPicture: reqString,
     authorEmail: reqString,
     dateCreated: { type: Date, default: Date.now },
     lastUpdated: { type: Date, default: Date.now }

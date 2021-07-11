@@ -45,7 +45,7 @@ const Home = () => {
                                     subheader={`${issue.author} | ${issue.priority}`}
                                     avatar={
                                         <Avatar alt='avatar'
-                                                src={user.picture || 'https://cdn.dribbble.com/users/6000583/screenshots/14453387/shot-cropped-1603613998514.png?compress=1&resize=400x300'}/>
+                                                src={issue.authorPicture || 'https://cdn.dribbble.com/users/6000583/screenshots/14453387/shot-cropped-1603613998514.png?compress=1&resize=400x300'}/>
                                     }
                                 />
                                 <CardContent>

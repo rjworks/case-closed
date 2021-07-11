@@ -51,7 +51,8 @@ const Create = () => {
                     description,
                     author: user.given_name,
                     priority: priority.charAt(0).toUpperCase() + priority.substring(1),
-                    authorEmail: user.email
+                    authorEmail: user.email,
+                    authorPicture: user.picture,
                 });
                 setSubmitting(false);
                 alert("The issue has been added.");

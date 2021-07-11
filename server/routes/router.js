@@ -46,7 +46,8 @@ router.post('/issues', async(req, res) => {
         description: b.description,
         author: b.author,
         priority: b.priority,
-        authorEmail: b.authorEmail
+        authorEmail: b.authorEmail,
+        authorPicture: b.authorPicture,
     });
 
     if(data === undefined || data === null) {
