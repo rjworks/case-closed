@@ -1,21 +1,27 @@
 import './App.css';
 import Home from "./components/Home/Home";
-import Navbar from "./components/Navbar/Navbar";
-import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Create from "./components/Issues/Issue/Create";
+import Issue from './components/Issues/Issue/Issue';
+import Layout from './components/Layout/Layout';
 
 function App() {
+
     return (
         <Router>
-            <Switch>
-                <Route exact path="/">
-                    <Home/>
-                    <Navbar/>
-                </Route>
-                <Route exact path="/create">
-                    <Create/>
-                </Route>
-            </Switch>
+            <Layout>
+                <Switch>
+                    <Route exact path="/">
+                        <Home/>
+                    </Route>
+                    <Route exact path="/create">
+                        <Create/>
+                    </Route>
+                    <Route exact path='/issues/:id'>
+                        <Issue/>
+                    </Route>
+                </Switch>
+            </Layout>
         </Router>
     );
 }

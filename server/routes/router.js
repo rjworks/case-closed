@@ -23,7 +23,7 @@ router.get('/issues/:id', async(req, res) => {
 
     try {
         const data = await Issue.find({
-            id: id
+            _id: id
         });
 
         if(data.length === 0) {
@@ -41,11 +41,12 @@ router.get('/issues/:id', async(req, res) => {
 router.post('/issues', async(req, res) => {
     const b = req.body;
     const data = new Issue({
-        id: b.id,
+        // id: b.id,
         title: b.title,
         description: b.description,
         author: b.author,
-        priority: b.priority
+        priority: b.priority,
+        authorEmail: b.authorEmail
     });
 
     if(data === undefined || data === null) {
