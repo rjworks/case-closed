@@ -5,7 +5,7 @@ const app = express();
 const cors = require('cors');
 require('dotenv').config();
 
-console.log('Connecting to the Databse...')
+console.log('Connecting to the Database...')
 mongoose.connect(process.env.DATABASE_URL, {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
 
 const db = mongoose.connection;
